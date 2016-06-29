@@ -1,0 +1,41 @@
+include $(TOPDIR)/rules.mk
+
+PKG_NAME:=koruza-driver
+PKG_VERSION:=2016-06-29
+PKG_RELEASE=$(PKG_SOURCE_VERSION)
+
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_URL:=https://github.com/kostko/koruza-driver.git
+PKG_SOURCE_SUBDIR:=$(PKG_NAME)
+PKG_SOURCE_VERSION:=89b837c0b06814a55ebaeda76864c5340a17b730
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
+PKG_MAINTAINER:=Jernej Kos <jernej@kos.mx>
+
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
+PKG_BUILD_PARALLEL:=1
+
+include $(INCLUDE_DIR)/package.mk
+include $(INCLUDE_DIR)/cmake.mk
+
+define Package/koruza-driver
+  SECTION:=utils
+  CATEGORY:=Base system
+  TITLE:=KORUZA driver
+  DEPENDS:=
+endef
+
+define Package/koruza-driver/description
+  KORUZA driver
+endef
+
+define Package/koruza-driver/conffiles
+/etc/config/koruza
+endef
+
+define Package/koruza-driver/install
+	$(INSTALL_DIR) $(1)/usr/bin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/koruza-driver $(1)/usr/bin/koruza-driver
+endef
+
+$(eval $(call BuildPackage,koruza-driver))
+
