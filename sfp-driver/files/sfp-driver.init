@@ -1,0 +1,22 @@
+#!/bin/sh /etc/rc.common
+
+START=90
+
+USE_PROCD=1
+NAME=sfp-driver
+PROG=/usr/bin/sfp-driver
+
+start_service() {
+  procd_open_instance
+  procd_set_param command "$PROG"
+  procd_set_param respawn
+  procd_close_instance
+}
+
+stop() {
+  service_stop "$PROG"
+}
+
+reload() {
+  service_reload "$PROG"
+}

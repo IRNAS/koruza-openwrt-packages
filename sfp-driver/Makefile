@@ -33,8 +33,12 @@ define Package/sfp-driver/conffiles
 endef
 
 define Package/sfp-driver/install
+	$(INSTALL_DIR) $(1)/etc/init.d
+	$(INSTALL_BIN) ./files/sfp-driver.init $(1)/etc/init.d/sfp-driver
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/sfp-driver $(1)/usr/bin/sfp-driver
+	$(INSTALL_DIR) $(1)/usr/share/rpcd/acl.d
+	$(INSTALL_CONF) ./files/rpcd-acl.json $(1)/usr/share/rpcd/acl.d/sfp-driver.json
 endef
 
 $(eval $(call BuildPackage,sfp-driver))
