@@ -21,7 +21,7 @@ define Package/koruza-driver
   SECTION:=utils
   CATEGORY:=Base system
   TITLE:=KORUZA driver
-  DEPENDS:=
+  DEPENDS:=+libubus +libubox +libuci
 endef
 
 define Package/koruza-driver/description
@@ -33,8 +33,12 @@ define Package/koruza-driver/conffiles
 endef
 
 define Package/koruza-driver/install
+	$(INSTALL_DIR) $(1)/etc/init.d
+	$(INSTALL_BIN) ./files/koruza-driver.init $(1)/etc/init.d/koruza-driver
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/koruza-driver $(1)/usr/bin/koruza-driver
+	$(INSTALL_DIR) $(1)/usr/share/rpcd/acl.d
+	$(INSTALL_CONF) ./files/rpcd-acl.json $(1)/usr/share/rpcd/acl.d/koruza-driver.json
 endef
 
 $(eval $(call BuildPackage,koruza-driver))
