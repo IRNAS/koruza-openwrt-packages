@@ -1,13 +1,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=koruza-driver
-PKG_VERSION:=2016-06-29
+PKG_VERSION:=2016-07-18
 PKG_RELEASE=$(PKG_SOURCE_VERSION)
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=https://github.com/kostko/koruza-driver.git
+PKG_SOURCE_URL:=https://github.com/IRNAS/koruza-driver.git
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)
-PKG_SOURCE_VERSION:=89b837c0b06814a55ebaeda76864c5340a17b730
+PKG_SOURCE_VERSION:=909a4db88dc1f26d74047a8bad9946a1a90d3ff9
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
 PKG_MAINTAINER:=Jernej Kos <jernej@kos.mx>
 
