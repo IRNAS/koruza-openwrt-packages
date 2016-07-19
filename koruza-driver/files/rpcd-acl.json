@@ -4,6 +4,7 @@
                 "read": {
                         "ubus": {
                                 "koruza": [
+                                        "get_status"
                                 ]
                         }
                 }
