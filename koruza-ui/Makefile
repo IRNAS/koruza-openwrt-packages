@@ -19,7 +19,7 @@ define Package/koruza-ui
   SECTION:=utils
   CATEGORY:=Base system
   TITLE:=KORUZA UI
-  DEPENDS:=+koruza-driver +sfp-driver +rpcd +rpcd-mod-iwinfo +uhttpd +uhttpd-mod-ubus
+  DEPENDS:=+koruza-driver +sfp-driver +rpcd +rpcd-mod-iwinfo +uhttpd +uhttpd-mod-ubus +mjpg-streamer +kmod-video-core +kmod-video-uvc
 endef
 
 define Package/koruza-ui/description
