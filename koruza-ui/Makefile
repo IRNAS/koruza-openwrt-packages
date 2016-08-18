@@ -1,13 +1,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=koruza-ui
-PKG_VERSION:=2016-08-02
+PKG_VERSION:=2016-08-18
 PKG_RELEASE=$(PKG_SOURCE_VERSION)
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/IRNAS/koruza-ui.git
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)
-PKG_SOURCE_VERSION:=42e06aab5726566aa5c1e1e4fe677c65992b730a
+PKG_SOURCE_VERSION:=7c75911fb15a96d6ca35df75f530d55f7f0f0ac0
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
 PKG_MAINTAINER:=Jernej Kos <jernej@kos.mx>
 
@@ -34,7 +34,8 @@ endef
 
 define Package/koruza-ui/install
 	$(INSTALL_DIR) $(1)/www/koruza
-	cp -a $(PKG_BUILD_DIR)/openwrt/* $(1)/www/koruza/
+	sed -i 's/<base href="\/">/<base href="\/koruza\/">/' $(PKG_BUILD_DIR)/dist/index.html
+	cp -a $(PKG_BUILD_DIR)/dist/* $(1)/www/koruza/
 endef
 
 $(eval $(call BuildPackage,koruza-ui))
