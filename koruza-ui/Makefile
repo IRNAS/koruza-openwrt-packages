@@ -36,6 +36,7 @@ define Package/koruza-ui/install
 	$(INSTALL_DIR) $(1)/www/koruza
 	sed -i 's/<base href="\/">/<base href="\/koruza\/">/' $(PKG_BUILD_DIR)/dist/index.html
 	cp -a $(PKG_BUILD_DIR)/dist/* $(1)/www/koruza/
+	cp $(PKG_BUILD_DIR)/src/favicon.ico $(1)/www/koruza/
 endef
 
 $(eval $(call BuildPackage,koruza-ui))
