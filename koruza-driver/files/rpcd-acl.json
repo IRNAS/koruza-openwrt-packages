@@ -8,5 +8,15 @@
                                 ]
                         }
                 }
+        },
+        "admin": {
+                "description": "Functions allowed for administrators",
+                "write": {
+                        "ubus": {
+                                "koruza": [
+                                        "move_motor"
+                                ]
+                        }
+                }
         }
 }
