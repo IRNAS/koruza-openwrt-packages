@@ -1,13 +1,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=koruza-driver
-PKG_VERSION:=2016-08-22
+PKG_VERSION:=2016-08-25
 PKG_RELEASE=$(PKG_SOURCE_VERSION)
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/IRNAS/koruza-driver.git
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)
-PKG_SOURCE_VERSION:=17d1d37a28e660ef94910caa9671932592560649
+PKG_SOURCE_VERSION:=c0693b443a609c6a172924466d8ff70527447a6d
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
 PKG_MAINTAINER:=Jernej Kos <jernej@kos.mx>
 
@@ -39,6 +39,8 @@ define Package/koruza-driver/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/koruza-driver $(1)/usr/bin/koruza-driver
 	$(INSTALL_DIR) $(1)/usr/share/rpcd/acl.d
 	$(INSTALL_CONF) ./files/rpcd-acl.json $(1)/usr/share/rpcd/acl.d/koruza-driver.json
+	$(INSTALL_DIR) $(1)/etc/config
+	$(INSTALL_CONF) ./files/koruza-driver.config $(1)/etc/config/koruza
 endef
 
 $(eval $(call BuildPackage,koruza-driver))
