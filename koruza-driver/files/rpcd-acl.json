@@ -14,7 +14,8 @@
                 "write": {
                         "ubus": {
                                 "koruza": [
-                                        "move_motor"
+                                        "move_motor",
+                                        "homing"
                                 ]
                         }
                 }
