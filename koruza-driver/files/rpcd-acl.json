@@ -15,7 +15,8 @@
                         "ubus": {
                                 "koruza": [
                                         "move_motor",
-                                        "homing"
+                                        "homing",
+                                        "reboot"
                                 ]
                         }
                 }
