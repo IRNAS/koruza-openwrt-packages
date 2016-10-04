@@ -16,7 +16,9 @@
                                 "koruza": [
                                         "move_motor",
                                         "homing",
-                                        "reboot"
+                                        "reboot",
+                                        "set_webcam_calibration",
+                                        "set_distance"
                                 ]
                         }
                 }
